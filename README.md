@@ -1,6 +1,6 @@
-# ARM Template Read-eval-print-loop (REPL) for Visual Studio Code
+# ARM Template Read-Eval-Print Loop (REPL) for Visual Studio Code
 
-A Visual Studio Code extension that enhances your ARM template editing experience with read-eval-print-loop (REPL) support.
+A Visual Studio Code extension that enhances your ARM template editing experience with read-eval-print loop (REPL) support.
 
 ## Features
 
@@ -10,7 +10,7 @@ A Visual Studio Code extension that enhances your ARM template editing experienc
 
 ![features](images/features.gif)
 
-## Requirements
+## Dependencies
 
 - [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
