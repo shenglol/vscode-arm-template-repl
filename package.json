@@ -1,0 +1,62 @@
+{
+	"name": "vscode-arm-template-repl",
+	"displayName": "ARM Template REPL",
+	"description": "Read-eval-print-loop (REPL) and type checking for Azure Resource Manager (ARM) templates.",
+	"publisher": "shenglol",
+  "version": "0.0.1",
+  "icon": "images/icon.png",
+	"engines": {
+		"vscode": "^1.46.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:vscode-arm-template-repl.start",
+		"onLanguage:arm-template"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "vscode-arm-template-repl.start",
+				"title": "ARM Template: Start REPL"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint src --ext ts",
+		"watch": "tsc -watch -p ./",
+		"pretest:integration": "npm run compile && npm run lint",
+		"pretest:unit": "npm run compile && npm run lint",
+		"test:integration": "node ./out/test/integration/index.js",
+		"test:unit": "mocha ./out/test/unit/**/**.test.js",
+		"test:tdd": "tsc-watch --onSuccess \"mocha ./out/test/unit/**/**.test.js --reporter dot\""
+	},
+	"devDependencies": {
+		"@types/chai": "^4.2.11",
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.2",
+		"@types/node": "^13.11.0",
+		"@types/string-similarity": "^3.0.0",
+		"@types/vscode": "^1.46.0",
+		"@typescript-eslint/eslint-plugin": "^3.4.0",
+		"@typescript-eslint/parser": "^3.4.0",
+		"chai": "^4.2.0",
+		"eslint": "^7.3.1",
+		"eslint-config-prettier": "^6.11.0",
+		"eslint-plugin-prettier": "^3.1.4",
+		"glob": "^7.1.6",
+		"mocha": "^8.0.1",
+		"prettier": "^2.0.5",
+		"tsc-watch": "^4.2.9",
+		"typescript": "^3.9.5",
+		"vscode-test": "^1.4.0"
+	},
+	"dependencies": {
+		"chevrotain": "^7.0.1",
+		"string-similarity": "^4.0.1"
+	}
+}
