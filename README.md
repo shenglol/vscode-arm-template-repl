@@ -4,7 +4,7 @@ A Visual Studio Code extension that enhances your ARM template editing experienc
 
 ## Features
 
-- Evalutates ARM template expressions file and gives live feedback as you type. Results are shown as decorations and are appended to the end of any line containing an expression.
+- Evalutates ARM template expressions and gives live feedback as you type. Results are shown as decorations and are appended to the end of any line containing an expression.
 
 - Provides type checking for built-in template expression functions.
 
