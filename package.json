@@ -14,8 +14,14 @@
 		"vscode": "^1.46.0"
 	},
 	"categories": [
-		"Other"
-	],
+    "Azure",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "Azure",
+    "ARM",
+    "ARM Template"
+  ],
 	"activationEvents": [
 		"onCommand:vscode-arm-template-repl.start",
 		"onLanguage:arm-template"
