@@ -3,13 +3,13 @@
 	"displayName": "ARM Template REPL",
 	"description": "Read-Eval-Print Loop (REPL) for Azure Resource Manager (ARM) templates.",
 	"publisher": "shenglol",
-  "version": "0.0.1",
-  "icon": "images/icon.png",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/shenglol/vscode-arm-template-repl.git"
-  },
-  "license": "SEE LICENSE IN LICENSE",
+	"version": "0.0.1",
+	"icon": "images/icon.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/shenglol/vscode-arm-template-repl.git"
+	},
+	"license": "SEE LICENSE IN LICENSE",
 	"engines": {
 		"vscode": "^1.46.0"
 	},
@@ -28,7 +28,15 @@
 				"title": "ARM Template: Start REPL"
 			}
 		]
-	},
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": "eslint --fix"
+  },
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
@@ -39,10 +47,10 @@
 		"test:integration": "node ./out/test/integration/index.js",
 		"test:unit": "mocha ./out/test/unit/**/**.test.js",
 		"test:tdd": "tsc-watch --onSuccess \"mocha ./out/test/unit/**/**.test.js --reporter dot\""
-  },
-  "extensionDependencies": [
-    "msazurermtools.azurerm-vscode-tools"
-  ],
+	},
+	"extensionDependencies": [
+		"msazurermtools.azurerm-vscode-tools"
+	],
 	"devDependencies": {
 		"@types/chai": "^4.2.11",
 		"@types/glob": "^7.1.1",
@@ -57,6 +65,8 @@
 		"eslint-config-prettier": "^6.11.0",
 		"eslint-plugin-prettier": "^3.1.4",
 		"glob": "^7.1.6",
+		"husky": "^4.2.5",
+		"lint-staged": "^10.2.11",
 		"mocha": "^8.0.1",
 		"prettier": "^2.0.5",
 		"tsc-watch": "^4.2.9",
