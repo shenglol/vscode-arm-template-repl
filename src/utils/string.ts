@@ -12,3 +12,7 @@ export function trimQuotes(text: string): string {
 
   return text;
 }
+
+export function equalsIgnoreCase(first: string, second: string): boolean {
+  return first.localeCompare(second, undefined, { sensitivity: "base" }) === 0;
+}
