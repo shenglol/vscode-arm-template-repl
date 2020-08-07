@@ -154,11 +154,11 @@ export const builtInFunctionMatchers = createBuiltInFunctionMatchers(
     .withFunctionName("base64ToString")
     .withParameterCount(1)
     .withParameterTypes(STR)
-    .returnsType(ANY),
+    .returnsType(STR),
   builtInFunctionMatcherFor(stringFunctions.concat)
     .withFunctionName("concat")
     .withParameterCount(atLeast(1))
-    .withParameterTypes(union(INT, STR), rest(union(INT, STR)))
+    .withParameterTypes(union(INT, STR, BOOL), rest(union(INT, STR, BOOL)))
     .returnsType(STR),
   builtInFunctionMatcherFor(stringFunctions.contains)
     .withFunctionName("contains")
@@ -587,7 +587,7 @@ export const builtInFunctionMatchers = createBuiltInFunctionMatchers(
     .withFunctionName("json")
     .withParameterCount(1)
     .withParameterTypes(STR)
-    .returnsType(OBJECT),
+    .returnsType(ANY),
   builtInFunctionMatcherFor(objectFunctions.length)
     .withFunctionName("length")
     .withParameterCount(1)
