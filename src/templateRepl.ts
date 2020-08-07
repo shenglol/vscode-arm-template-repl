@@ -7,6 +7,7 @@ import { checkExpr } from "./language/expr/checker";
 import { interpreteExpr } from "./language/expr/interpreter";
 import { Span } from "./language/core/span";
 import { trimQuotes } from "./utils/string";
+import { debounce } from "./utils/functions";
 
 // TODO: make configurable.
 const hintDecorationType = vscode.window.createTextEditorDecorationType({
@@ -46,13 +47,13 @@ export class TemplateRepl {
     );
 
     vscode.window.onDidChangeActiveTextEditor(
-      this.handleDidChangeActiveTextEditor,
+      debounce(this.handleDidChangeActiveTextEditor),
       this,
       context.subscriptions
     );
 
     vscode.workspace.onDidChangeTextDocument(
-      this.handleDidChangeTextDocument,
+      debounce(this.handleDidChangeTextDocument),
       this,
       context.subscriptions
     );
