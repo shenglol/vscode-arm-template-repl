@@ -1,6 +1,8 @@
+import { compareTwoStrings } from "string-similarity";
+
 import { Failure, Success, success, failure } from "../../core/results";
 import { MatcherCombinator } from "./matcherCombinator";
-import { compareTwoStrings } from "string-similarity";
+import { equalsIgnoreCase } from "../../../utils/string";
 
 export type StringMatchingFailure = Failure<
   "StringMismatch",
@@ -21,8 +23,12 @@ function stringMismatch(
   return failure("StringMismatch", { expected, actual, similarity });
 }
 
-export function text(expectedValue: string): StringMatcher {
+export function text(expectedValue: string, ignoreCase = false): StringMatcher {
   return new StringMatcher((actualValue) => {
+    if (ignoreCase && equalsIgnoreCase(expectedValue, actualValue)) {
+      return success();
+    }
+
     const similairty = compareTwoStrings(expectedValue, actualValue);
 
     return similairty === 1

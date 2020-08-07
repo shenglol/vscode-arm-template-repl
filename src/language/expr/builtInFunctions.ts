@@ -228,7 +228,7 @@ export const builtInFunctionMatchers = createBuiltInFunctionMatchers(
   builtInFunctionMatcherFor(stringFunctions.padLeft)
     .withFunctionName("padLeft")
     .withParameterCount(between(2, 3))
-    .withParameterTypes(union(STR, INT), INT)
+    .withParameterTypes(union(STR, INT), INT, optional(STR))
     .returnsType(STR),
   builtInFunctionMatcherFor(stringFunctions.replace)
     .withFunctionName("replace")
@@ -334,7 +334,6 @@ export const builtInFunctionMatchers = createBuiltInFunctionMatchers(
     .withFunctionName("first")
     .withParameterCount(1)
     .withParameterTypes(ARRAY)
-    // .returnsType(union(INT, STR, ARRAY, OBJECT)),
     .returnsType(ANY),
   builtInFunctionMatcherFor(arrayFunctions.intersection)
     .withFunctionName("intersection")
@@ -345,7 +344,7 @@ export const builtInFunctionMatchers = createBuiltInFunctionMatchers(
     .withFunctionName("last")
     .withParameterCount(1)
     .withParameterTypes(ARRAY)
-    .returnsType(union(INT, STR, ARRAY, OBJECT)),
+    .returnsType(ANY),
   builtInFunctionMatcherFor(arrayFunctions.length)
     .withFunctionName("length")
     .withParameterCount(1)
@@ -488,16 +487,12 @@ export const builtInFunctionMatchers = createBuiltInFunctionMatchers(
   builtInFunctionMatcherFor(logicalFunctions.bool)
     .withFunctionName("bool")
     .withParameterCount(1)
-    .withParameterTypes(union(INT, STR))
+    .withParameterTypes(union(INT, STR, BOOL))
     .returnsType(BOOL),
   builtInFunctionMatcherFor(logicalFunctions.if)
     .withFunctionName("if")
     .withParameterCount(3)
-    .withParameterTypes(
-      BOOL,
-      union(INT, STR, ARRAY, OBJECT),
-      union(INT, STR, ARRAY, OBJECT)
-    )
+    .withParameterTypes(BOOL, ANY, ANY)
     .resolvesReturnType((argumentTypes) => union(...argumentTypes.slice(1))),
   builtInFunctionMatcherFor(logicalFunctions.not)
     .withFunctionName("not")
@@ -606,7 +601,7 @@ export const builtInFunctionMatchers = createBuiltInFunctionMatchers(
     .withParameterTypes(STR, STR, STR, rest(STR))
     .returnsType(STR),
   builtInFunctionMatcherFor(resourceFunctions["list*"])
-    .withFunctionName(/^list.*/)
+    .withFunctionName(/^list.*/i)
     .withParameterCount(between(2, 3))
     .withParameterTypes(STR, STR, optional(OBJECT))
     .returnsType(ANY),

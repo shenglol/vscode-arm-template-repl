@@ -85,7 +85,7 @@ export class BuiltInFunctionMatcher
   ): ParameterCountMatcherBuilder {
     this.builtInFunctionNameMatcher =
       typeof functionName === "string"
-        ? text(functionName)
+        ? text(functionName, true)
         : regex(functionName);
 
     return this;
