@@ -1,6 +1,6 @@
 import * as ast from "./ast";
 import { ExprType, FLOAT, INT, STR, ANY, union, ARRAY, OBJECT } from "./type";
-import { BuiltInFunction } from "./matchers/builtInfunctionMatcher";
+import { BuiltInFunction } from "./matchers/builtInFunctionMatcher";
 import { CountMatchingFailure } from "./matchers/countMatcher";
 import { TypeMatchingFailure } from "./matchers/typeMatcher";
 import { StringMatchingFailure } from "./matchers/stringMatcher";

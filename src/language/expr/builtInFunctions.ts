@@ -2,7 +2,7 @@ import { INT, STR, ARRAY, OBJECT, union, BOOL, ANY, FLOAT } from "./type";
 import {
   createBuiltInFunctionMatchers,
   builtInFunctionMatcherFor,
-} from "./matchers/builtInfunctionMatcher";
+} from "./matchers/builtInFunctionMatcher";
 import { atLeast, between, atMost } from "./matchers/countMatcher";
 import { rest, optional } from "./matchers/typeMatcher";
 import { trimQuotes } from "../../utils/string";
