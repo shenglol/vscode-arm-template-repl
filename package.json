@@ -54,7 +54,8 @@
     "test:integration": "node ./out/test/integration/index.js",
     "test:unit": "mocha ./out/test/unit/**/**.test.js",
     "test:tdd": "tsc-watch --onSuccess \"mocha ./out/test/unit/**/**.test.js --reporter dot\"",
-    "package": "vsce package -o arm-template-repl.vsix"
+    "package": "vsce package -o arm-template-repl.vsix",
+    "deploy": "vsce publish"
   },
   "extensionDependencies": [
     "msazurermtools.azurerm-vscode-tools"
