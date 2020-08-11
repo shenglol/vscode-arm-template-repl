@@ -19,7 +19,7 @@ jobs:
         - name: Test env variable
           run: echo $TEST_TOKEN
           env:
-            TEST_TOKEN: $
+            TEST_TOKEN: ${{ secrets.TEST_TOKEN }}
       # - name: Checkout
       #   uses: actions/checkout@v2
 
