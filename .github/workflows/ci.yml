@@ -16,42 +16,46 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+        - name: Test env variable
+          run: echo $TEST_TOKEN
+          env:
+            TEST_TOKEN: $
+      # - name: Checkout
+      #   uses: actions/checkout@v2
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2.1.1
-        with:
-          node-version: 10.x
+      # - name: Setup Node.js environment
+      #   uses: actions/setup-node@v2.1.1
+      #   with:
+      #     node-version: 10.x
 
-      - name: Install dependencies
-        run: npm ci
+      # - name: Install dependencies
+      #   run: npm ci
 
-      - name: Compile source code
-        run: npm run compile
+      # - name: Compile source code
+      #   run: npm run compile
 
-      - name: Lint
-        run: npm run lint
+      # - name: Lint
+      #   run: npm run lint
 
-      - name: Run unit tests
-        run: npm run test:unit
+      # - name: Run unit tests
+      #   run: npm run test:unit
 
-      - name: Run integration tests
-        uses: GabrielBB/xvfb-action@v1.2
-        with:
-          run: npm run test:integration
+      # - name: Run integration tests
+      #   uses: GabrielBB/xvfb-action@v1.2
+      #   with:
+      #     run: npm run test:integration
 
-      - name: Create VSIX
-        run: npm run package
+      # - name: Create VSIX
+      #   run: npm run package
 
-      - name: Upload VSIX
-        uses: actions/upload-artifact@v2
-        with:
-          name: arm-template-repl
-          path: arm-template-repl.vsix
+      # - name: Upload VSIX
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: arm-template-repl
+      #     path: arm-template-repl.vsix
 
-      - name: Publish
-        if: success() && startsWith(github.ref, 'refs/tags/')
-        run: npm run deploy
-        env:
-          VSCE_PAT: $
+      # - name: Publish
+      #   if: success() && startsWith(github.ref, 'refs/tags/')
+      #   run: npm run deploy
+      #   env:
+      #     VSCE_PAT: $
