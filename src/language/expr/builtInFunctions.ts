@@ -305,7 +305,7 @@ export const builtInFunctionMatchers = createBuiltInFunctionMatchers(
   builtInFunctionMatcherFor(arrayFunctions.array)
     .withFunctionName("array")
     .withParameterCount(1)
-    .withParameterTypes(union(INT, STR, ARRAY, OBJECT))
+    .withParameterTypes(ANY)
     .returnsType(ARRAY),
   builtInFunctionMatcherFor(arrayFunctions.concat)
     .withFunctionName("concat")
@@ -320,10 +320,7 @@ export const builtInFunctionMatchers = createBuiltInFunctionMatchers(
   builtInFunctionMatcherFor(arrayFunctions.createArray)
     .withFunctionName("createArray")
     .withParameterCount(atLeast(1))
-    .withParameterTypes(
-      union(INT, STR, ARRAY, OBJECT),
-      rest(union(INT, STR, ARRAY, OBJECT))
-    )
+    .withParameterTypes(ANY, rest(ANY))
     .returnsType(ARRAY),
   builtInFunctionMatcherFor(arrayFunctions.empty)
     .withFunctionName("empty")
@@ -385,18 +382,12 @@ export const builtInFunctionMatchers = createBuiltInFunctionMatchers(
   builtInFunctionMatcherFor(comparisionFunctions.coalesce)
     .withFunctionName("coalesce")
     .withParameterCount(atLeast(1))
-    .withParameterTypes(
-      union(INT, STR, ARRAY, OBJECT),
-      rest(union(INT, STR, ARRAY, OBJECT))
-    )
-    .returnsType(union(INT, STR, ARRAY, OBJECT)),
+    .withParameterTypes(ANY, rest(ANY))
+    .returnsType(ANY),
   builtInFunctionMatcherFor(comparisionFunctions.equals)
     .withFunctionName("equals")
     .withParameterCount(2)
-    .withParameterTypes(
-      union(INT, STR, ARRAY, OBJECT),
-      union(INT, STR, ARRAY, OBJECT)
-    )
+    .withParameterTypes(ANY, ANY)
     .returnsType(BOOL),
   builtInFunctionMatcherFor(comparisionFunctions.greater)
     .withFunctionName("greater")
