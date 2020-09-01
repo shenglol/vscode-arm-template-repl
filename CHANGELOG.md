@@ -2,7 +2,14 @@
 
 All notable changes to the "vscode-arm-template-repl" extension will be documented in this file.
 
-## [Unreleased]
+## [v0.0.3](https://github.com/shenglol/vscode-arm-template-repl/tree/v0.0.3)
+
+### Changed
+- Fix type metadata for `array` function
+- Fix type metadata for `createArray` function
+- Fix type metadata for `coalesce` function
+- Fix type metadata for `equals` function
+
 
 ## [v0.0.2](https://github.com/shenglol/vscode-arm-template-repl/tree/v0.0.2)
 
